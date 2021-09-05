@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import photo from './avatar.jpeg';
 import './App.css';
+import List from './components/List';
 
 class App extends Component {
-  state = {
-    isVisible: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false,
+    };
   }
-  tosees = [
-    'Alioune Badara Nzale',
-    'Enhanced Tech',
-    'Full Stack JS student',
-  ]
-
+ 
   toggleVisibility = () => {
     this.setState({
       isVisible: !this.state.isVisible
@@ -20,18 +18,10 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-        <button className="visibility-btn" onClick={this.toggleVisibility}>{this.state.isVisible ? 'Hide List' : 'Show List'}</button>
-        {this.state.isVisible ? 
-          
-          (
-          <ul className="list">
-            {this.tosees.map((tosee,i)=> (
-              <li key={i}>{tosee}</li>
-            ) ) }
-          </ul>) : ( <h4>Click on the button to show list</h4> )
-        }
-        
+      <div style={{color: 'blue', textAlign: 'center', marginTop:80}}>
+        <button className="visibility-btn" style={{backgroundColor: 'yellow'}}
+        onClick={this.toggleVisibility}>{this.state.isVisible ? 'Hide List' : 'Show List'}</button>
+        {this.state.isVisible && <List/>} 
       </div>
     )
         }
