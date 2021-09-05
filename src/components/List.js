@@ -23,6 +23,11 @@ class List extends Component {
         console.log('componentDidMount()');
     }
 
+    componentWillUnmount() {
+        console.log('componentWillUnmount()');
+        clearInterval(this.state.interval);
+    }
+
     tosees = [
         './avatar.jpeg',
         'Alioune Badara Nzale',
